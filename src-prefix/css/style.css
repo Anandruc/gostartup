@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lexend:wght@200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* third-party libraries CSS */
+.tns-controls {
+  @apply ud-absolute ud-left-1/2 ud-bottom-14 ud-z-30 ud-flex ud--translate-x-1/2 ud-space-x-5 lg:ud-left-[70px] lg:ud-translate-x-0;
+}
+
+.tns-controls button {
+  @apply ud-flex ud-h-10 ud-w-10 ud-items-center ud-justify-center ud-rounded-full ud-bg-primary ud-bg-opacity-10 ud-text-primary hover:ud-bg-opacity-100 hover:ud-text-white dark:ud-bg-white dark:ud-bg-opacity-10 dark:ud-text-white dark:hover:ud-bg-primary dark:hover:ud-bg-opacity-100 dark:hover:ud-text-white;
+}
+
+@layer base {
+  *, ::before, ::after {
+    @apply ud-border-stroke;
+  }
+  
+  body {
+    @apply ud-font-body;
+  }
+}
+
+@layer components {
+  html {
+    @apply ud-scroll-smooth;
+  }
+
+  .header {
+    @apply ud-py-5;
+  }
+
+  .sticky {
+    @apply !ud-fixed !ud-z-[9999] !ud-bg-white !ud-bg-opacity-80 !ud-py-2 !ud-transition dark:!ud-bg-dark;
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar > li > a {
+    @apply lg:ud-py-7;
+  }
+
+  .sticky .navbar > li > a {
+    @apply lg:ud-py-5;
+  }
+
+  .menu-scroll.active {
+    @apply ud-text-primary;
+  }
+
+  .menu-wrapper {
+    @apply ud-hidden;
+  }
+
+  .menu-wrapper.show {
+    @apply ud-flex;
+  }
+
+  .title {
+    background: linear-gradient(
+      180deg,
+      rgba(74, 108, 247, 0.4) 0%,
+      rgba(74, 108, 247, 0) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    opacity: 0.2;
+    @apply ud-absolute ud-left-1/2 ud-top-0 ud--translate-x-1/2 ud-text-[40px] ud-font-extrabold !ud-leading-none sm:ud-text-[60px] lg:ud-text-[95px];
+  }
+
+  .dark .title {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  #supportCheckbox:checked ~ div span {
+    @apply ud-opacity-100;
+  }
+
+  .submenu-item a.active {
+    @apply ud-text-primary dark:ud-text-white;
+  }
+  .submenu-item a.active span svg {
+    @apply ud-rotate-180;
+  }
+
+  .grid-sizer {
+    @apply ud-w-full md:ud-w-1/2 lg:ud-w-1/3;
+  }
+
+  .portfolio-btn-wrapper button.active {
+    @apply ud-underline;
+  }
+}
